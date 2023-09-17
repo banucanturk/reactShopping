@@ -1,0 +1,150 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+/* .productList div {
+  display: flex;
+  flex-direction: column;
+} */
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  text-align: center;
+}
+
+.header {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+}
+
+.main {
+  background-color: #f0f0f0;
+  padding: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* .product {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  background-color: white;
+  display: inline-block;
+  width: 200px;
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: white;
+  text-align: center;
+} */
+.productList {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; 
+  gap: 80px;
+}
+
+.basket {
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #f7f7f7;
+  margin-top: 100px;
+}
+.basketItems {
+  display: flex;
+  flex-wrap: wrap; /* Yan yana sıralanan öğeleri alt satıra geçir (gerektiğinde) */
+}
+
+.basketItem {
+  margin: 10px;
+  margin-bottom: 5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+
+.basketTotal {
+  font-weight: bold;
+}
+
+.basketItemInfo .removeItemButton {
+  background-color: #f0f0f0;
+  display: flex;
+  margin-left: 100px;
+}
+.quantityBtnTotal {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+.quantityBtn {
+  background-color: #f0f0f0;
+  margin-bottom: 20px;
+  
+}
+@media (max-width: 768px) {
+  #root {
+    padding: 1rem;
+  }
+ .main {
+  padding: 35px;
+
+  }
+  .basket {
+    padding: 0px;
+  }
+  .productList {
+    display: block;
+  }
+}
+
