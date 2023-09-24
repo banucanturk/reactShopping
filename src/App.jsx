@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import './App.css';
 import Basket from './components/Basket';
 import Product from './components/Product';
+import Modal from './components/Modal';
 import productsData from './data/product';
+import useStickyState from './custom';
 
 function App() {
   const [basket, setBasket] = useState([]);
   const [products, setProducts] = useState(productsData);
+  const [isModalOpen, setIsModalOpen] = useStickyState(false);
 
   const addToBasket = (product) => {
     const { id } = product;
@@ -33,6 +36,20 @@ function App() {
     setProducts(updatedProducts);
   };
 
+  const handleSaveProduct = (productData) => {
+    const newProduct = {
+      id: products.length + 1,
+      ...productData,
+    };
+
+    setProducts([...products, newProduct]);
+    toggleModal();
+  };
+
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
   const updateProductStock = (productId, newStock) => {
     const updatedProducts = products.map((product) => {
       if (product.id === productId) {
@@ -51,6 +68,7 @@ function App() {
 
       <div className="main">
         <h2>Ürünler</h2>
+        <button onClick={toggleModal}>Yeni Ürün Ekle</button>
         <div className="productList">
           {products.map((product) => (
             <Product
@@ -62,9 +80,14 @@ function App() {
           ))}
         </div>
         <Basket basket={basket} updateBasket={setBasket} products={products} setProducts={setProducts} />
+
       </div>
+      {isModalOpen && <Modal isOpen={isModalOpen} onClose={toggleModal} onAddProduct={handleSaveProduct} />}
+
     </div>
   );
 }
 
 export default App;
+
+
